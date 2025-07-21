@@ -15,8 +15,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'eval $(minikube docker-env)'  // Make sure image is built inside Minikube's Docker
-                sh 'docker build -t $IMAGE_TAG .'
+                sh 'eval $(minikube docker-env) && docker build -t $IMAGE_TAG .'
+
             }
         }
 
